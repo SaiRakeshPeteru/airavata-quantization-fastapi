@@ -69,7 +69,7 @@ You can find the training and evaluation code at the [IndicInstruct GitHub repos
 
 | Metric       | Base Model (bfloat16) | Quantized Model (4-bit) | Quantized Model (8-bit) |
 |--------------|-------------------|--------------------------|--------------------------|
-| Latency      | ~1277.75 ms/req   | ~1817.08 ms ms/req          | ~2010.42 /req          |
+| Latency      | ~1277.75 ms/req   | ~1817.08  ms/req          | ~2010.42 ms/req          |
 | Throughput   | ~0.78 req/sec     | ~0.42 req/sec            | ~0.50 req/sec            |
 | Model Size   | ~13.74 GB         | ~3.85 GB                 | ~6.70 GB                 |
 
