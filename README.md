@@ -66,7 +66,6 @@ You can find the training and evaluation code at the [IndicInstruct GitHub repos
 
 ## Benchmark Results
 
-Benchmarks were conducted on Google Colab using an NVIDIA T4 GPU, comparing the original FP16 model and its quantized counterparts (4-bit and 8-bit).
 
 | Metric       | Base Model (bfloat16) | Quantized Model (4-bit) | Quantized Model (8-bit) |
 |--------------|-------------------|--------------------------|--------------------------|
@@ -76,6 +75,8 @@ Benchmarks were conducted on Google Colab using an NVIDIA T4 GPU, comparing the 
 
 The quantized model shows higher latency on Colab's T4 GPU, likely due to lack of INT4 kernel optimization. Performance is expected to improve on newer GPUs like A100/H100.
 The quantized model shows a **significant reduction in memory usage** while maintaining acceptable response quality and throughput.
+
+INT8 quantization was also tested for reference, but the 4-bit version performed better overall.
 
 ---
 
