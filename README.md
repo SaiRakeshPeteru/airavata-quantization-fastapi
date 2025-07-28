@@ -8,7 +8,7 @@ This repository presents a quantized implementation of the `ai4bharat/Airavata` 
 - Quantization: 4-bit using `bitsandbytes`
 - Backend: FastAPI
 - Tested on: Google Colab (T4 GPU) with latency and throughput benchmarks
-- Format: Structured for easy deployment and inference
+
 
 ## Quantization Details
 
@@ -26,20 +26,11 @@ The model was quantized using the `bitsandbytes` 4-bit quantization method with 
 
 The base model is a 7B parameter instruction-tuned LLM from AI4Bharat, trained using LoRA on the IndicInstruct dataset. This dataset includes diverse instruction-following corpora such as Anudesh, wikiHow, Flan v2, Dolly, Anthropic-HHH, OpenAssistant v1, and LymSys-Chat.
 
-LoRA training details:
+This was trained as part of the technical report Airavata: Introducing Hindi Instruction-tuned LLM. The codebase used to train and evaluate this model can be found at [IndicInstruct GitHub repository](https://github.com/AI4Bharat/IndicInstruct).
 
-- Rank: 16
-- Alpha: 32
-- Dropout: 0.05
-- Target Modules: `["q_proj", "v_proj", "k_proj", "down_proj", "gate_proj", "up_proj"]`
-- Epochs: 4
-- Learning Rate: 5e-4
-- Batch Size: 128
-- Precision: bfloat16
+## Input Format.
 
-For more details, refer to the [Airavata technical report](https://ai4bharat.org/blog/airavata) or the [IndicInstruct GitHub repository](https://github.com/AI4Bharat/IndicInstruct).
-
-## Input Format
+ 
 
 The model expects input in a chat format similar to Open-Instruct:
 
@@ -68,20 +59,7 @@ It is important to include a newline after `<|assistant|>` for optimal generatio
 
 Note: The `Quantized_Airavata/` directory is excluded from the GitHub repository due to file size constraints. It can be generated locally using `quantize_and_save.py`.
 
-## FastAPI Usage
 
-To start the server:
-```bash
-uvicorn app:app --host 0.0.0.0 --port 8000
-````
-
-Example API request:
-
-```bash
-curl -X POST http://localhost:8000/generate \
-     -H "Content-Type: application/json" \
-     -d '{"prompt": "how to manage time effectively?", "max_new_tokens": 50}'
-```
 
 ## Benchmark Results
 
@@ -121,17 +99,7 @@ The quantized model demonstrates significant improvements in memory efficiency a
    python benchmark.py
    ```
 
-## Model Weights
-
-Due to GitHub file size restrictions, the quantized model weights are not included in this repository. They can be generated using the provided quantization script (`quantize_and_save.py`) or downloaded via a shared external link if required.
-
-## License and Attribution
-
-The original model `ai4bharat/Airavata` is maintained by AI4Bharat and subject to their terms of use. This repository uses it under those guidelines for inference and optimization purposes only.
 
 ```
 
----
 
-Let me know if you want help writing the `.gitignore`, `requirements.txt`, or pushing this to GitHub cleanly.
-```
