@@ -74,7 +74,7 @@ You can find the training and evaluation code at the [IndicInstruct GitHub repos
 | Model Size   | ~13.74 GB         | ~3.85 GB                 | ~6.70 GB                 |
 
 The quantized model shows higher latency on Colab's T4 GPU, likely due to lack of INT4 kernel optimization. Performance is expected to improve on newer GPUs like A100/H100.
-The quantized model shows a **significant reduction in memory usage** while maintaining acceptable response quality and throughput.
+The quantized model shows a **significant reduction in memory usage**.
 
 INT8 quantization was also tested for reference, but the 4-bit version performed better overall.
 
@@ -90,7 +90,7 @@ To qualitatively evaluate the impact of quantization, we tested both the origina
 
 ---
 
-###  FP16 (Original Model) Output:
+###  Original Model Output:
 
 
 यहाँ पाँच बिंदु दिए गए हैं जो आपको अपने समय प्रबंधन कौशल में सुधार करने में मदद कर सकते हैंः
@@ -125,7 +125,7 @@ To qualitatively evaluate the impact of quantization, we tested both the origina
 
 ### Observations
 
-- The **original FP16 model** provides more detailed, fluent, and well-formatted output.
+- The **original model** provides more detailed, fluent, and well-formatted output.
 - The **quantized model** retains core instructional quality, though it exhibits some redundancy and slightly less coherent phrasing.
 - Overall, the quantized model is still effective for Hindi instruction tasks while offering considerable efficiency gains.
 
