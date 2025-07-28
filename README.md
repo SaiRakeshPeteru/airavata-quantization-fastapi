@@ -67,9 +67,9 @@ Benchmarks were conducted on Google Colab (NVIDIA T4 GPU), comparing the base (F
 
 | Metric     | Base Model (FP16) | Quantized Model (4-bit) |
 | ---------- | ----------------- | ----------------------- |
-| Latency    | \~950 ms/request  | \~460 ms/request        |
-| Throughput | \~1.05 req/sec    | \~2.17 req/sec          |
-| Model Size | \~13.2 GB         | \~4.7 GB                |
+| Latency    | \~950 ms/request  | \~2403.04 ms/request    |
+| Throughput | \~1.05 req/sec    | \~0.42 requests/sec     |
+| Model Size | \~13.2 GB         | \~3.5 GB                |
 
 The quantized model demonstrates significant improvements in memory efficiency and inference performance, while maintaining reasonable generation quality.
 
