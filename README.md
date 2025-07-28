@@ -1,4 +1,4 @@
-# Quantized Airavata: FastAPI Deployment and Benchmarking
+# Quantized Airavata
 
 This repository presents a quantized implementation of the `ai4bharat/Airavata` language model, deployed via a FastAPI backend. The goal is to improve inference efficiency on both CPU and GPU by reducing model size and memory requirements through quantization. The project also includes benchmarking scripts to measure latency and throughput.
 
@@ -28,23 +28,7 @@ The base model is a 7B parameter instruction-tuned LLM from AI4Bharat, trained u
 
 This was trained as part of the technical report Airavata: Introducing Hindi Instruction-tuned LLM. The codebase used to train and evaluate this model can be found at [IndicInstruct GitHub repository](https://github.com/AI4Bharat/IndicInstruct).
 
-## Input Format.
 
- 
-
-The model expects input in a chat format similar to Open-Instruct:
-
-
-
-```
-
-<|user|>
-Your message here!
-<|assistant|>
-
-````
-
-It is important to include a newline after `<|assistant|>` for optimal generation quality.
 
 ## Repository Structure
 
@@ -65,41 +49,11 @@ Note: The `Quantized_Airavata/` directory is excluded from the GitHub repository
 
 Benchmarks were conducted on Google Colab (NVIDIA T4 GPU), comparing the base (FP16) model and the quantized (4-bit) model.
 
-| Metric     | Base Model (FP16) | Quantized Model (4-bit) |
-| ---------- | ----------------- | ----------------------- |
-| Latency    | \~1277.75 ms/request  | \~2011.24 ms/request    |
-| Throughput | \~0.78 requests/sec   | \~0.42 requests/sec     |
-| Model Size | \~13.2 GB         | \~3.5 GB                |
+| Metric     | Base Model (FP16) | Quantized Model (4-bit) | Quantized Model (8-bit) |
+| ---------- | ----------------- | ----------------------- | ----------------------- |
+| Latency    | \~1277.75 ms/request  | \~2011.24 ms/request    |\~2001.42 ms/request    |
+| Throughput | \~0.78 requests/sec   | \~0.42 requests/sec     |\~0.50 requests/sec     |
+| Model Size | \~13.74 GB         | \~3.85 GB                | \~6.7 GB                |
 
 The quantized model demonstrates significant improvements in memory efficiency and inference performance, while maintaining reasonable generation quality.
-
-## How to Run
-
-1. Install dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-2. Quantize the model (one-time step):
-
-   ```bash
-   python quantize_and_save.py
-   ```
-
-3. Start the FastAPI server:
-
-   ```bash
-   uvicorn app:app --reload
-   ```
-
-4. Run benchmarks (optional):
-
-   ```bash
-   python benchmark.py
-   ```
-
-
-```
-
 
