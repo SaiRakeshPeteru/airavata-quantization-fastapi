@@ -21,7 +21,7 @@ The notebook includes:
 - Quantization using `bitsandbytes`
 - FastAPI setup and endpoint testing
 - Latency and throughput benchmarking
-- Instruction-prompt inference examples
+
 
 > **Note:** Enable GPU runtime in Colab via `Runtime > Change runtime type > GPU` before running.
 
@@ -90,7 +90,7 @@ To qualitatively evaluate the impact of quantization, we tested both the origina
 
 ---
 
-### 🔷 FP16 (Original Model) Output:
+###  FP16 (Original Model) Output:
 
 
 यहाँ पाँच बिंदु दिए गए हैं जो आपको अपने समय प्रबंधन कौशल में सुधार करने में मदद कर सकते हैंः
